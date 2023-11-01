@@ -14,6 +14,9 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   body {
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    place-items: center;
     background-image: linear-gradient(
       to right top,
       #051937,
@@ -22,7 +25,6 @@ const GlobalStyle = styled.createGlobalStyle`
       #00bf72,
       #a8eb12
     );
-
     height: 100vh;
   }
 `;
