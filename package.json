@@ -1,5 +1,6 @@
 {
   "name": "custom-calculator",
+  "homepage": "https://krystianzybura.github.io/custom-calculator/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "ci:publish": "pnpm publish -r"
+    "deploy": "pnpm run build && gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
