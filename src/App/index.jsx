@@ -1,5 +1,4 @@
-import { Button } from "./Button";
-import { Container } from "./Container";
+import { Button, Container } from "./styled";
 
 function App() {
   return (
