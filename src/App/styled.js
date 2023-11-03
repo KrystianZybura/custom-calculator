@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "value value value value"
+    "numbers numbers numbers toolbar";
   grid-gap: 3px;
 `;
 
@@ -31,4 +34,22 @@ export const Button = styled.button`
       #26b75e
     );
   }
+`;
+
+export const Toolbar = styled.div`
+  display: grid;
+  grid-area: toolbar;
+`;
+
+export const Numbers = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: numbers;
+`;
+
+export const Value = styled.input`
+  grid-area: value;
+  background: green;
+  color: white;
+  padding: 10px;
 `;
