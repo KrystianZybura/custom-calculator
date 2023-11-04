@@ -1,9 +1,9 @@
-import { Button, Container, Numbers, Toolbar, Value } from "./styled";
+import { Button, Container, Numbers, ActionBar, Value } from "./styled";
 
 function App() {
   return (
     <Container>
-      <Value></Value>
+      <Value />
       <Numbers>
         <Button>1</Button>
         <Button>2</Button>
@@ -15,12 +15,13 @@ function App() {
         <Button>8</Button>
         <Button>9</Button>
       </Numbers>
-      <Toolbar>
+      <ActionBar>
         <Button>+</Button>
         <Button>-</Button>
         <Button>/</Button>
         <Button>*</Button>
-      </Toolbar>
+        <Button>=</Button>
+      </ActionBar>
     </Container>
   );
 }

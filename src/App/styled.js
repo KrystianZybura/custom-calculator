@@ -36,7 +36,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Toolbar = styled.div`
+export const ActionBar = styled.div`
   display: grid;
   grid-area: toolbar;
 `;
