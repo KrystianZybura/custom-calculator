@@ -1,11 +1,29 @@
-import { Button, Container, Numbers, ActionBar, Value } from "./styled";
+import { Button, Calculator, Numbers, ActionBar, Value } from "./styled";
+import { useState } from "react";
 
 function App() {
+  const [value, setValue] = useState();
+
+  const onFormSubmit = (event) => event.preventDefault();
+
+  const onNumberClick = (number) => {
+    if (!value) {
+      setValue(number);
+
+      return;
+    }
+
+    setValue((value) => value + number);
+  };
+
   return (
-    <Container>
-      <Value />
+    <Calculator onSubmit={onFormSubmit}>
+      <Value
+        value={value ?? ""}
+        onChange={({ target }) => setValue(target.value)}
+      />
       <Numbers>
-        <Button>1</Button>
+        <Button onClick={() => onNumberClick(1)}>1</Button>
         <Button>2</Button>
         <Button>3</Button>
         <Button>4</Button>
@@ -14,6 +32,7 @@ function App() {
         <Button>7</Button>
         <Button>8</Button>
         <Button>9</Button>
+        <Button>0</Button>
       </Numbers>
       <ActionBar>
         <Button>+</Button>
@@ -22,7 +41,7 @@ function App() {
         <Button>*</Button>
         <Button>=</Button>
       </ActionBar>
-    </Container>
+    </Calculator>
   );
 }
 
