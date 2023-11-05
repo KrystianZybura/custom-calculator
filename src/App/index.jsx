@@ -13,7 +13,7 @@ function App() {
       return;
     }
 
-    setValue((value) => value + number);
+    setValue((value) => `${value}${number}`);
   };
 
   return (
@@ -24,15 +24,15 @@ function App() {
       />
       <Numbers>
         <Button onClick={() => onNumberClick(1)}>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
-        <Button>4</Button>
-        <Button>5</Button>
-        <Button>6</Button>
-        <Button>7</Button>
-        <Button>8</Button>
-        <Button>9</Button>
-        <Button>0</Button>
+        <Button onClick={() => onNumberClick(2)}>2</Button>
+        <Button onClick={() => onNumberClick(3)}>3</Button>
+        <Button onClick={() => onNumberClick(4)}>4</Button>
+        <Button onClick={() => onNumberClick(5)}>5</Button>
+        <Button onClick={() => onNumberClick(6)}>6</Button>
+        <Button onClick={() => onNumberClick(7)}>7</Button>
+        <Button onClick={() => onNumberClick(8)}>8</Button>
+        <Button onClick={() => onNumberClick(9)}>9</Button>
+        <Button onClick={() => onNumberClick(0)}>0</Button>
       </Numbers>
       <ActionBar>
         <Button>+</Button>
