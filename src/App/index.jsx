@@ -19,6 +19,7 @@ function App() {
   return (
     <Calculator onSubmit={onFormSubmit}>
       <Value
+        autoFocus
         value={value ?? ""}
         onChange={({ target }) => setValue(target.value)}
       />
