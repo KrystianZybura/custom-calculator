@@ -2,26 +2,43 @@ import { Button, Calculator, Numbers, ActionBar, Value } from "./styled";
 import { useState } from "react";
 
 function App() {
-  const [value, setValue] = useState();
+  const [visibleValue, setVisibleValue] = useState();
+  const [firstNumber, setFirstNumber] = useState();
+  const [secondNumber, setSecondNumber] = useState();
+  const [result, setResult] = useState();
 
   const onFormSubmit = (event) => event.preventDefault();
 
   const onNumberClick = (number) => {
-    if (!value) {
-      setValue(number);
+    if (!visibleValue) {
+      setVisibleValue(number);
 
       return;
     }
 
-    setValue((value) => `${value}${number}`);
+    setVisibleValue((visibleValue) => `${visibleValue}${number}`);
+  };
+
+  const onActionClick = (action) => {
+    if (visibleValue.includes(action)) {
+      return;
+    }
+
+    setVisibleValue((visibleValue) => `${visibleValue} ${action} `);
+  };
+
+  const calculateResult = () => {
+    console.log(visibleValue);
+    setVisibleValue((visibleValue) => +visibleValue);
+    setVisibleValue(result);
   };
 
   return (
     <Calculator onSubmit={onFormSubmit}>
       <Value
         autoFocus
-        value={value ?? ""}
-        onChange={({ target }) => setValue(target.value)}
+        value={visibleValue ?? ""}
+        onChange={({ target }) => setVisibleValue(target.value)}
       />
       <Numbers>
         <Button onClick={() => onNumberClick(1)}>1</Button>
@@ -36,11 +53,11 @@ function App() {
         <Button onClick={() => onNumberClick(0)}>0</Button>
       </Numbers>
       <ActionBar>
-        <Button>+</Button>
-        <Button>-</Button>
-        <Button>/</Button>
-        <Button>*</Button>
-        <Button>=</Button>
+        <Button onClick={() => onActionClick("+")}>+</Button>
+        <Button onClick={() => onActionClick("-")}>-</Button>
+        <Button onClick={() => onActionClick("/")}>/</Button>
+        <Button onClick={() => onActionClick("*")}>*</Button>
+        <Button onClick={calculateResult}>=</Button>
       </ActionBar>
     </Calculator>
   );
