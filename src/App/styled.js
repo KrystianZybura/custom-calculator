@@ -1,12 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Calculator = styled.form`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "value value value value"
-    "numbers numbers numbers toolbar";
-  grid-gap: 3px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  background: #fff;
 `;
 
 export const Button = styled.button`
@@ -14,7 +12,6 @@ export const Button = styled.button`
   border: none;
   font-weight: bold;
   font-size: 20px;
-  border-radius: 2px;
   background-image: linear-gradient(
     to right top,
     #86ff00,
@@ -23,6 +20,12 @@ export const Button = styled.button`
     #3df058,
     #12eb66
   );
+
+  ${({ $spanTwo }) =>
+    $spanTwo &&
+    css`
+      grid-column: span 2;
+    `}
 
   &:hover {
     background-image: linear-gradient(
@@ -36,20 +39,16 @@ export const Button = styled.button`
   }
 `;
 
-export const ActionBar = styled.div`
-  display: grid;
-  grid-area: toolbar;
-`;
-
-export const Numbers = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-area: numbers;
-`;
-
-export const Value = styled.input`
-  grid-area: value;
-  background: green;
+export const Value = styled.div`
+  grid-column: span 4;
+  background-image: linear-gradient(
+    to right top,
+    #0f3f2b,
+    #0e3324,
+    #0c281c,
+    #091d15,
+    #01120b
+  );
   color: white;
-  padding: 10px;
+  padding: 30px;
 `;
