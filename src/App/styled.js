@@ -10,7 +10,7 @@ export const Calculator = styled.form`
 `;
 
 export const Button = styled.button`
-  padding: 15px 50px;
+  padding: 20px;
   border: none;
   font-weight: bold;
   font-size: 20px;
@@ -43,7 +43,7 @@ export const ActionBar = styled.div`
 
 export const Numbers = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-area: numbers;
 `;
 
