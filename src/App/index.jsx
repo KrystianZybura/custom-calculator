@@ -1,4 +1,4 @@
-import { Button, Calculator, Numbers, ActionBar, Value } from "./styled";
+import { Button, Calculator, Value } from "./styled";
 import { useState } from "react";
 
 function App() {
@@ -56,25 +56,28 @@ function App() {
         value={visibleValue ?? ""}
         onChange={({ target }) => setVisibleValue(target.value)}
       />
-      <Numbers>
-        <Button onClick={() => onNumberClick(1)}>1</Button>
-        <Button onClick={() => onNumberClick(2)}>2</Button>
-        <Button onClick={() => onNumberClick(3)}>3</Button>
-        <Button onClick={() => onNumberClick(4)}>4</Button>
-        <Button onClick={() => onNumberClick(5)}>5</Button>
-        <Button onClick={() => onNumberClick(6)}>6</Button>
-        <Button onClick={() => onNumberClick(7)}>7</Button>
-        <Button onClick={() => onNumberClick(8)}>8</Button>
-        <Button onClick={() => onNumberClick(9)}>9</Button>
-        <Button onClick={() => onNumberClick(0)}>0</Button>
-      </Numbers>
-      <ActionBar>
-        <Button onClick={() => onActionClick("+")}>+</Button>
-        <Button onClick={() => onActionClick("-")}>-</Button>
-        <Button onClick={() => onActionClick("/")}>/</Button>
-        <Button onClick={() => onActionClick("*")}>*</Button>
-        <Button onClick={() => calculateResult(action)}>=</Button>
-      </ActionBar>
+      <Button $spanTwo onClick={() => onNumberClick(1)}>
+        AC
+      </Button>
+      <Button onClick={() => onNumberClick(1)}>DEL</Button>
+      <Button onClick={() => onActionClick("/")}>÷</Button>
+      <Button onClick={() => onNumberClick(1)}>1</Button>
+      <Button onClick={() => onNumberClick(2)}>2</Button>
+      <Button onClick={() => onNumberClick(3)}>3</Button>
+      <Button onClick={() => onActionClick("*")}>*</Button>
+      <Button onClick={() => onNumberClick(4)}>4</Button>
+      <Button onClick={() => onNumberClick(5)}>5</Button>
+      <Button onClick={() => onNumberClick(6)}>6</Button>
+      <Button onClick={() => onActionClick("+")}>+</Button>
+      <Button onClick={() => onNumberClick(7)}>7</Button>
+      <Button onClick={() => onNumberClick(8)}>8</Button>
+      <Button onClick={() => onNumberClick(9)}>9</Button>
+      <Button onClick={() => onActionClick("-")}>-</Button>
+      <Button onClick={() => onNumberClick(0)}>0</Button>
+      <Button onClick={() => onNumberClick(0)}>.</Button>
+      <Button $spanTwo onClick={() => calculateResult(action)}>
+        =
+      </Button>
     </Calculator>
   );
 }
