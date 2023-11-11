@@ -2,35 +2,51 @@ import { Button, Calculator, Numbers, ActionBar, Value } from "./styled";
 import { useState } from "react";
 
 function App() {
-  const [visibleValue, setVisibleValue] = useState();
-  const [firstNumber, setFirstNumber] = useState();
-  const [secondNumber, setSecondNumber] = useState();
-  const [result, setResult] = useState();
+  const [visibleValue, setVisibleValue] = useState("");
+  const [firstNumber, setFirstNumber] = useState("");
+  const [secondNumber, setSecondNumber] = useState("");
+  const [action, setAction] = useState();
 
   const onFormSubmit = (event) => event.preventDefault();
 
   const onNumberClick = (number) => {
     if (!visibleValue) {
-      setVisibleValue(number);
-
+      setVisibleValue(number.toString());
+      setFirstNumber((firstNumber) => `${firstNumber}${number}`);
       return;
+    }
+
+    if (visibleValue.includes("+", "-", "*", "/")) {
+      setSecondNumber((secondNumber) => `${secondNumber}${number}`);
+    } else {
+      setFirstNumber((firstNumber) => `${firstNumber}${number}`);
     }
 
     setVisibleValue((visibleValue) => `${visibleValue}${number}`);
   };
 
   const onActionClick = (action) => {
-    if (visibleValue.includes(action)) {
-      return;
-    }
-
+    setAction((action) => action);
     setVisibleValue((visibleValue) => `${visibleValue} ${action} `);
   };
 
-  const calculateResult = () => {
-    console.log(visibleValue);
-    setVisibleValue((visibleValue) => +visibleValue);
-    setVisibleValue(result);
+  const calculateResult = (action) => {
+    setAction(undefined);
+
+    switch (action) {
+      default:
+        setVisibleValue(Number(firstNumber) + Number(secondNumber));
+        break;
+      case "-":
+        setVisibleValue(Number(firstNumber) - Number(secondNumber));
+        break;
+      case "*":
+        setVisibleValue(Number(firstNumber) * Number(secondNumber));
+        break;
+      case "/":
+        setVisibleValue(Number(firstNumber) / Number(secondNumber));
+        break;
+    }
   };
 
   return (
@@ -57,7 +73,7 @@ function App() {
         <Button onClick={() => onActionClick("-")}>-</Button>
         <Button onClick={() => onActionClick("/")}>/</Button>
         <Button onClick={() => onActionClick("*")}>*</Button>
-        <Button onClick={calculateResult}>=</Button>
+        <Button onClick={() => calculateResult(action)}>=</Button>
       </ActionBar>
     </Calculator>
   );
