@@ -1,9 +1,9 @@
-import { Button, Calculator, Value } from "./styled";
+import { Button, Calculator, Output } from "./styled";
 
 function App() {
   return (
     <Calculator>
-      <Value />
+      <Output />
       <Button $spanTwo>AC</Button>
       <Button>DEL</Button>
       <Button>÷</Button>

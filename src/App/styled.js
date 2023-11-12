@@ -36,7 +36,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Value = styled.div`
+export const Output = styled.div`
   grid-column: span 4;
   background-image: linear-gradient(
     to right top,
