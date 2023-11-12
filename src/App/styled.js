@@ -3,13 +3,10 @@ import styled, { css } from "styled-components";
 export const Calculator = styled.form`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1px;
-  background: #fff;
 `;
 
 export const Button = styled.button`
   padding: 20px;
-  border: none;
   font-weight: bold;
   font-size: 20px;
   background-image: linear-gradient(
