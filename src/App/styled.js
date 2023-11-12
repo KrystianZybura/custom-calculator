@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 
-export const Calculator = styled.form`
+export const Calculator = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 `;
 
 export const Button = styled.button`
-  padding: 20px;
   font-weight: bold;
   font-size: 20px;
   background-image: linear-gradient(
