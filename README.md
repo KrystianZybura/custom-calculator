@@ -1,6 +1,10 @@
-# My Custom Calculator
+# Custom Calculator
 
 Currently still in development ;)
+
+# Demo
+
+Check it out here: [Custom Calculator](https://krystianzybura.github.io/custom-calculator/)
 
 # React + Vite
 
