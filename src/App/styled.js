@@ -38,14 +38,7 @@ export const Button = styled.button`
 
 export const Output = styled.div`
   grid-column: 1 / -1;
-  background-image: linear-gradient(
-    to right top,
-    #0f3f2b,
-    #0e3324,
-    #0c281c,
-    #091d15,
-    #01120b
-  );
+  background: #0009;
   color: white;
   padding: 30px;
 `;
