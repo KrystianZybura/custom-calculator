@@ -1,9 +1,18 @@
-import { Button, Calculator, Output } from "./styled";
+import {
+  Button,
+  Calculator,
+  CurrentOperand,
+  Output,
+  PreviousOperand,
+} from "./styled";
 
 function App() {
   return (
     <Calculator>
-      <Output />
+      <Output>
+        <PreviousOperand>1234,234 *</PreviousOperand>
+        <CurrentOperand>123,34536</CurrentOperand>
+      </Output>
       <Button $spanTwo>AC</Button>
       <Button>DEL</Button>
       <Button>÷</Button>

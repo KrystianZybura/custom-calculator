@@ -37,8 +37,24 @@ export const Button = styled.button`
 `;
 
 export const Output = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-wrap: wrap;
   grid-column: 1 / -1;
   background: #0009;
-  color: white;
-  padding: 30px;
+  padding: 12px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+`;
+
+export const PreviousOperand = styled.div`
+  color: #fff9;
+  font-size: 24px;
+`;
+
+export const CurrentOperand = styled.div`
+  color: #fff;
+  font-size: 40px;
 `;
