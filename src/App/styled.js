@@ -7,16 +7,11 @@ export const Calculator = styled.div`
 `;
 
 export const Button = styled.button`
-  font-weight: bold;
-  font-size: 20px;
-  background-image: linear-gradient(
-    to right top,
-    #86ff00,
-    #70fb30,
-    #58f647,
-    #3df058,
-    #12eb66
-  );
+  font-size: 32px;
+  cursor: pointer;
+  background: #fff9;
+  border: 1px solid #fff9;
+  transition: 0.1s;
 
   ${({ $spanTwo }) =>
     $spanTwo &&
@@ -24,15 +19,8 @@ export const Button = styled.button`
       grid-column: span 2;
     `}
 
-  &:hover {
-    background-image: linear-gradient(
-      to right top,
-      #83dc20,
-      #6bd338,
-      #55ca48,
-      #3ec154,
-      #26b75e
-    );
+  &:hover, &:focus {
+    background: #ffffffe6;
   }
 `;
 
