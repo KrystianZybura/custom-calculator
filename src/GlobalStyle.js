@@ -17,6 +17,7 @@ const GlobalStyle = styled.createGlobalStyle`
     font-family: "Roboto", sans-serif;
     display: grid;
     place-items: center;
+    letter-spacing: 0.8px;
     background-image: linear-gradient(
       to right top,
       #051937,
