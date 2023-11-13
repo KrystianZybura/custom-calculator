@@ -12,6 +12,7 @@ export const Button = styled.button`
   background: #fff9;
   border: 1px solid #fff9;
   transition: 0.1s;
+  outline: none;
 
   ${({ $spanTwo }) =>
     $spanTwo &&
