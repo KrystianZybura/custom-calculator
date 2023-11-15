@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import {
   Button,
   Calculator,
@@ -5,31 +6,41 @@ import {
   Output,
   PreviousOperand,
 } from "./styled";
+import DigitButton from "./DigitButton";
+
+const reducer = () => {};
 
 function App() {
+  const [{ previousOperand, currentOperand, operation }, dispatch] = useReducer(
+    reducer,
+    {}
+  );
+
   return (
     <Calculator>
       <Output>
-        <PreviousOperand>1234,234 *</PreviousOperand>
-        <CurrentOperand>123,34536</CurrentOperand>
+        <PreviousOperand>
+          {previousOperand} {operation}
+        </PreviousOperand>
+        <CurrentOperand>{currentOperand}</CurrentOperand>
       </Output>
       <Button $spanTwo>AC</Button>
       <Button>DEL</Button>
       <Button>÷</Button>
-      <Button>1</Button>
-      <Button>3</Button>
-      <Button>2</Button>
+      <DigitButton dispatch={dispatch} digit={"1"} />
+      <DigitButton dispatch={dispatch} digit={"2"} />
+      <DigitButton dispatch={dispatch} digit={"3"} />
       <Button>*</Button>
-      <Button>4</Button>
-      <Button>5</Button>
-      <Button>6</Button>
+      <DigitButton dispatch={dispatch} digit={"4"} />
+      <DigitButton dispatch={dispatch} digit={"5"} />
+      <DigitButton dispatch={dispatch} digit={"6"} />
       <Button>+</Button>
-      <Button>7</Button>
-      <Button>8</Button>
-      <Button>9</Button>
+      <DigitButton dispatch={dispatch} digit={"7"} />
+      <DigitButton dispatch={dispatch} digit={"8"} />
+      <DigitButton dispatch={dispatch} digit={"9"} />
       <Button>-</Button>
-      <Button>0</Button>
-      <Button>.</Button>
+      <DigitButton dispatch={dispatch} digit={"."} />
+      <DigitButton dispatch={dispatch} digit={"0"} />
       <Button $spanTwo>=</Button>
     </Calculator>
   );
