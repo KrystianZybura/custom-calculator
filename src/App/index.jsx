@@ -7,6 +7,7 @@ import {
   PreviousOperand,
 } from "./styled";
 import DigitButton from "./DigitButton";
+import OperationButton from "./OperationButton";
 
 const reducer = () => {};
 
@@ -26,19 +27,19 @@ function App() {
       </Output>
       <Button $spanTwo>AC</Button>
       <Button>DEL</Button>
-      <Button>÷</Button>
+      <OperationButton operation={"÷"} dispatch={dispatch} />
       <DigitButton dispatch={dispatch} digit={"1"} />
       <DigitButton dispatch={dispatch} digit={"2"} />
       <DigitButton dispatch={dispatch} digit={"3"} />
-      <Button>*</Button>
+      <OperationButton operation={"*"} dispatch={dispatch} />
       <DigitButton dispatch={dispatch} digit={"4"} />
       <DigitButton dispatch={dispatch} digit={"5"} />
       <DigitButton dispatch={dispatch} digit={"6"} />
-      <Button>+</Button>
+      <OperationButton operation={"+"} dispatch={dispatch} />
       <DigitButton dispatch={dispatch} digit={"7"} />
       <DigitButton dispatch={dispatch} digit={"8"} />
       <DigitButton dispatch={dispatch} digit={"9"} />
-      <Button>-</Button>
+      <OperationButton operation={"-"} dispatch={dispatch} />
       <DigitButton dispatch={dispatch} digit={"."} />
       <DigitButton dispatch={dispatch} digit={"0"} />
       <Button $spanTwo>=</Button>
