@@ -8,8 +8,23 @@ import {
 } from "./styled";
 import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
+import { ACTIONS } from "./actions";
 
-const reducer = () => {};
+const reducer = (state, { type, payload }) => {
+  switch (type) {
+    case ACTIONS.ADD_DIGIT:
+      if (!state.currentOperand) {
+        return { currentOperand: payload.digit };
+      }
+
+      return {
+        ...state,
+        currentOperand: `${state.currentOperand}${payload.digit}`,
+      };
+    default:
+      state;
+  }
+};
 
 function App() {
   const [{ previousOperand, currentOperand, operation }, dispatch] = useReducer(
