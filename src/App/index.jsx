@@ -13,14 +13,26 @@ import { ACTIONS } from "./actions";
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
-      if (!state.currentOperand) {
+      if (
+        +state.currentOperand === 0 &&
+        payload.digit !== "." &&
+        state.currentOperand !== "0."
+      ) {
         return { currentOperand: payload.digit };
+      }
+
+      if (
+        (+state.currentOperand === 0 && +payload.digit === 0) ||
+        (!state.currentOperand && payload.digit === ".")
+      ) {
+        return state;
       }
 
       return {
         ...state,
-        currentOperand: `${state.currentOperand}${payload.digit}`,
+        currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
+
     default:
       state;
   }
