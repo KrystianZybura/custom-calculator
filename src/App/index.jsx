@@ -18,7 +18,7 @@ const reducer = (state, { type, payload }) => {
         payload.digit !== "." &&
         state.currentOperand !== "0."
       ) {
-        return { currentOperand: payload.digit };
+        return { ...state, currentOperand: payload.digit };
       }
 
       if (
@@ -31,6 +31,18 @@ const reducer = (state, { type, payload }) => {
       return {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
+      };
+
+    case ACTIONS.CHOOSE_OPERATION:
+      if (state.operation && payload.operation) {
+        return { ...state, operation: payload.operation };
+      }
+
+      return {
+        ...state,
+        operation: payload.operation,
+        previousOperand: state.currentOperand,
+        currentOperand: null,
       };
 
     default:
