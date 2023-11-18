@@ -1,4 +1,4 @@
-import { ACTIONS } from "../actions";
+import { ACTIONS } from "../helpers/actions";
 import { Button } from "../styled";
 
 const OperationButton = ({ operation, dispatch }) => (

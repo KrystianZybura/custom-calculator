@@ -8,8 +8,8 @@ import {
 } from "./styled";
 import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
-import { ACTIONS } from "./actions";
-import { reducer } from "./reducer";
+import { ACTIONS } from "./helpers/actions";
+import { reducer } from "./helpers/reducer";
 
 function App() {
   const [{ previousOperand, currentOperand, operation }, dispatch] = useReducer(
