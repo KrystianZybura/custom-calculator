@@ -1,10 +1,14 @@
 # Custom Calculator
 
-Currently still in development ;)
+Custom calculator is one of my projects I made to practice using react, in this specific case I mostly focused on useReducer hook 💪
 
 # Demo
 
 Check it out here: [Custom Calculator](https://krystianzybura.github.io/custom-calculator/)
+
+# Technologies used in the project
+
+![Technologies](https://skillicons.dev/icons?i=html,js,css,react,styledcomponents,vite,git)
 
 # React + Vite
 
