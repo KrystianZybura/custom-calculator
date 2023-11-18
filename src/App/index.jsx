@@ -10,10 +10,8 @@ import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
 import { ACTIONS } from "./actions";
 
-const evaluate = (currentOperand, previousOperand, operation) => {
-  const firstNumber = parseFloat(currentOperand);
-  const secondNumber = parseFloat(previousOperand);
-  if (isNaN(firstNumber) || isNaN(secondNumber)) {
+const evaluate = (firstNumber, secondNumber, operation) => {
+  if (isNaN(+firstNumber) || isNaN(+secondNumber)) {
     return "";
   }
 
@@ -21,16 +19,16 @@ const evaluate = (currentOperand, previousOperand, operation) => {
 
   switch (operation) {
     case "+":
-      computation = firstNumber + secondNumber;
+      computation = +firstNumber + +secondNumber;
       break;
     case "-":
-      computation = firstNumber - secondNumber;
+      computation = +firstNumber - +secondNumber;
       break;
     case "*":
-      computation = firstNumber * secondNumber;
+      computation = +firstNumber * +secondNumber;
       break;
     case "÷":
-      computation = firstNumber / secondNumber;
+      computation = +firstNumber / +secondNumber;
       break;
 
     default:
@@ -117,8 +115,8 @@ const reducer = (state, { type, payload }) => {
 
       return {
         currentOperand: evaluate(
-          state.currentOperand,
           state.previousOperand,
+          state.currentOperand,
           state.operation
         ),
       };
