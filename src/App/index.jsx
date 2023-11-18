@@ -14,6 +14,14 @@ const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (
+        typeof state.currentOperand === "string" &&
+        state.currentOperand.includes(".") &&
+        payload.digit === "."
+      ) {
+        return state;
+      }
+
+      if (
         +state.currentOperand === 0 &&
         payload.digit !== "." &&
         state.currentOperand !== "0."
@@ -46,8 +54,18 @@ const reducer = (state, { type, payload }) => {
       };
 
     case ACTIONS.DELETE_DIGIT:
+      if (!state.operation && !state.currentOperand && state.previousOperand) {
+        return {
+          ...state,
+          previousOperand: state.previousOperand.slice(0, -1),
+        };
+      }
+
       if (!state.currentOperand) {
-        return state;
+        return {
+          ...state,
+          operation: null,
+        };
       }
 
       return {
