@@ -10,6 +10,36 @@ import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
 import { ACTIONS } from "./actions";
 
+const evaluate = (currentOperand, previousOperand, operation) => {
+  const firstNumber = parseFloat(currentOperand);
+  const secondNumber = parseFloat(previousOperand);
+  if (isNaN(firstNumber) || isNaN(secondNumber)) {
+    return "";
+  }
+
+  let computation = "";
+
+  switch (operation) {
+    case "+":
+      computation = firstNumber + secondNumber;
+      break;
+    case "-":
+      computation = firstNumber - secondNumber;
+      break;
+    case "*":
+      computation = firstNumber * secondNumber;
+      break;
+    case "÷":
+      computation = firstNumber / secondNumber;
+      break;
+
+    default:
+      computation = "";
+  }
+
+  return computation.toString();
+};
+
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
@@ -42,6 +72,10 @@ const reducer = (state, { type, payload }) => {
       };
 
     case ACTIONS.CHOOSE_OPERATION:
+      if (!state.currentOperand) {
+        return state;
+      }
+
       if (state.operation && payload.operation) {
         return { ...state, operation: payload.operation };
       }
@@ -75,6 +109,19 @@ const reducer = (state, { type, payload }) => {
 
     case ACTIONS.CLEAR:
       return (state = {});
+
+    case ACTIONS.EVALUATE:
+      if (!state.currentOperand || !state.previousOperand || !state.operation) {
+        return state;
+      }
+
+      return {
+        currentOperand: evaluate(
+          state.currentOperand,
+          state.previousOperand,
+          state.operation
+        ),
+      };
 
     default:
       state;
@@ -116,7 +163,9 @@ function App() {
       <OperationButton operation={"-"} dispatch={dispatch} />
       <DigitButton dispatch={dispatch} digit={"."} />
       <DigitButton dispatch={dispatch} digit={"0"} />
-      <Button $spanTwo>=</Button>
+      <Button onClick={() => dispatch({ type: ACTIONS.EVALUATE })} $spanTwo>
+        =
+      </Button>
     </Calculator>
   );
 }
