@@ -33,12 +33,12 @@ export const reducer = (state, { type, payload }) => {
       };
 
     case ACTIONS.CHOOSE_OPERATION:
-      if (!state.currentOperand) {
-        return state;
+      if (state.previousOperand) {
+        return { ...state, operation: payload.operation };
       }
 
-      if (state.operation && payload.operation) {
-        return { ...state, operation: payload.operation };
+      if (!state.currentOperand) {
+        return state;
       }
 
       return {
