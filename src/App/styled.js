@@ -4,6 +4,17 @@ export const Calculator = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 6rem);
   grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  margin: 20px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(4, 5rem);
+    grid-template-rows: minmax(6rem, auto) repeat(5, 5rem);
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(4, 4rem);
+    grid-template-rows: minmax(4rem, auto) repeat(5, 4rem);
+  }
 `;
 
 export const Button = styled.button`
@@ -13,6 +24,14 @@ export const Button = styled.button`
   border: 1px solid #fff9;
   transition: 0.1s;
   outline: none;
+
+  @media (max-width: 767px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 20px;
+  }
 
   ${({ $spanTwo }) =>
     $spanTwo &&
@@ -41,9 +60,25 @@ export const Output = styled.div`
 export const PreviousOperand = styled.div`
   color: #fff9;
   font-size: 24px;
+
+  @media (max-width: 767px) {
+    font-size: 21px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 18px;
+  }
 `;
 
 export const CurrentOperand = styled.div`
   color: #fff;
   font-size: 40px;
+
+  @media (max-width: 767px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 20px;
+  }
 `;
