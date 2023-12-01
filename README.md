@@ -2,15 +2,20 @@
 
 Custom calculator is one of my projects I made to practice using react, in this specific case I mostly focused on useReducer hook 💪
 
-# Demo
+## Source
+It is important to note that this project comes from Web Dev Simplified video, but I implemented my own logic for practice.
 
-Check it out here: [Custom Calculator](https://krystianzybura.github.io/custom-calculator/)
+Check out the tutorial: [Calculator Tutorial Link](https://www.youtube.com/watch?v=DgRrrOt0Vr8)
 
-# Technologies used in the project
+## Demo
+
+Visit my calculator version here: [Custom Calculator](https://krystianzybura.github.io/custom-calculator/)
+
+### Technologies used in the project
 
 ![Technologies](https://skillicons.dev/icons?i=html,js,css,react,styledcomponents,vite,git)
 
-# React + Vite
+#### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
