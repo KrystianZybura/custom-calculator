@@ -3,6 +3,7 @@
 Custom calculator is one of my projects I made to practice using react, in this specific case I mostly focused on useReducer hook 💪
 
 ## Source
+
 It is important to note that this project comes from Web Dev Simplified video, but I implemented my own logic for practice.
 
 Check out the tutorial: [Calculator Tutorial Link](https://www.youtube.com/watch?v=DgRrrOt0Vr8)
@@ -10,6 +11,10 @@ Check out the tutorial: [Calculator Tutorial Link](https://www.youtube.com/watch
 ## Demo
 
 Visit my calculator version here: [Custom Calculator](https://krystianzybura.github.io/custom-calculator/)
+
+## Preview
+
+![preview](preview.gif)
 
 ### Technologies used in the project
 
